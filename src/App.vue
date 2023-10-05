@@ -1,55 +1,69 @@
+
+
 <script setup>
 import { ref } from 'vue'
+
+
 
 const color = ref ('');
 const height = ref ('0');
 const width = ref ('0');
-const radius = ref ('');
+const radius = ref ('')
 
 </script>
 <template>
 <form>
-<p>COLOR: <input type="text" v-model.lazy="color" /></p>
-HEIGHT: <select v-model.lazy="height">
-    <option value="0" >0</option>
-    <option value="100px">100px</option>    
-    <option value="200px">200px</option>
-    <option value="300px">300px</option>
-    <option value="400px">400px</option>
-    <option value="500px">500px</option>
-    </select>
+<div class="container">
+    <div class="vertical-container">
+        <p>COLOR: <input type="text" v-model="color" :disabled="isDisabled"/></p>
+       <p> HEIGHT: <select v-model="height">
+            <option value="" disabled selected>Choose your option</option>
+            <option value="100px">100px</option>    
+            <option value="200px">200px</option>
+            <option value="300px">300px</option>
+            <option value="400px">400px</option>
+            <option value="500px">500px</option>
+            
+                </select>
+                
     
-    <input type="text" v-model.lazy="height"/>
+                <div class="input-height">
+                    <input type="text" v-model="height"/>
+                </div> </p>
 
-<p>WIDTH: <select v-model.lazy="width ">
-    <option value="0" >0</option>
-    <option value="100px">100px</option>    
-    <option value="200px">200px</option>
-    <option value="300px">300px</option>
-    <option value="400px">400px</option>
-    <option value="500px">500px</option>
-    </select>
+        <p>WIDTH: <select v-model="width ">
+            <option value="" disabled selected>Choose your option</option>
+            <option value="100px">100px</option>    
+            <option value="200px">200px</option>
+            <option value="300px">300px</option>
+            <option value="400px">400px</option>
+            <option value="500px">500px</option>
+            
+                </select>
     
+                <div class="input-width">
+                    <input type="text" v-model="width"/>
+                </div></p>
 
-    <input type="text" v-model.lazy="width"/>
-    </p>
+        <p>RADIUS: <select v-model="radius" >
+            <option value="15px">15px</option>
+            <option value="25px">25px</option>
+            <option value="50px">50px</option>
+            <option value="15px 50px 30px 5px">15px 50px 30px 5px</option>
+            <option value="15px 50px 30px">15px 50px 30px</option>
+            <option value="15px 50px">15px 50px</option>
+                </select>
 
-RADIUS: <select v-model.lazy="radius" >
-        <option value="15px">15px</option>
-        <option value="25px">25px</option>
-        <option value="50px">50px</option>
-        <option value="15px 50px 30px 5px">15px 50px 30px 5px</option>
-        <option value="15px 50px 30px">15px 50px 30px</option>
-        <option value="15px 50px">15px 50px</option>
-        </select>
+                <div class="input-radius">
+                    <input type="text" v-model="radius"/>
+                </div></p>
 
-        <input type="text" v-model.lazy="radius"/>
-
-<div class="txt" ><p> Color: {{ color }} Height: {{ height}} Width: {{width}} Radius: {{ radius }}</p>
-
+        <div class="txt" ><p> Color: {{ color }} Height: {{ height}} Width: {{width}} Radius: {{ radius }}</p>
+        </div>
+        <div class="box">
+        </div>
+    </div>
 </div>
-<div class="box"></div>
-
 </form>
 
 </template>
@@ -60,11 +74,32 @@ RADIUS: <select v-model.lazy="radius" >
     background-color: v-bind(color);
     height: v-bind(height);
     width: v-bind(width);
-    border-radius: v-bind(radius)   
+    border-radius: v-bind(radius);
+    position:center;
+    left:500px;
 }
 .txt {
     font-style: italic;
     font-weight: bold;
 }
+
+
+
+.input-height {
+    position:absolute;
+    left: 320px;
+    top: 42px;
+}
+.input-width {
+    position:absolute;
+    left:320px;
+    top: 83px
+}
+.input-radius {
+    position: absolute;
+    left: 320px;
+    top: 123px;
+}
+
 
 </style>
