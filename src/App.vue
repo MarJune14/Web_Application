@@ -6,13 +6,36 @@ import { ref } from 'vue'
 
 
 const color = ref ('');
-const height = ref ('0');
-const width = ref ('0');
+const height = ref ('');
+const width = ref ('');
 const radius = ref ('')
 
 </script>
 <template>
-<form>
+
+<div class="container mt-3">
+  <h3>COSTUMIZE YOUR BOX</h3>
+  
+  
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+    Click to Open
+  </button>
+</div>
+
+
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Costumize your BOX</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form>
 <div class="container">
     <div class="vertical-container">
         <p>COLOR: <input type="text" v-model="color" :disabled="isDisabled"/></p>
@@ -23,8 +46,8 @@ const radius = ref ('')
             <option value="300px">300px</option>
             <option value="400px">400px</option>
             <option value="500px">500px</option>
+            </select>
             
-                </select>
                 
     
                 <div class="input-height">
@@ -58,13 +81,28 @@ const radius = ref ('')
                     <input type="text" v-model="radius"/>
                 </div></p>
 
-        <div class="txt" ><p> Color: {{ color }} Height: {{ height}} Width: {{width}} Radius: {{ radius }}</p>
+        <div class="txt" >
+        <p> Color: {{ color }} </p>
+        <p> Height: {{ height}} </p>
+        <p> Width: {{ width }} </p>
+        <p> Radius: {{ radius }} </p>
         </div>
         <div class="box">
         </div>
     </div>
 </div>
 </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 
 </template>
 
@@ -87,18 +125,18 @@ const radius = ref ('')
 
 .input-height {
     position:absolute;
-    left: 320px;
-    top: 42px;
+    left: 300px;
+    top: 60px;
 }
 .input-width {
     position:absolute;
-    left:320px;
-    top: 83px
+    left:300px;
+    top: 100px
 }
 .input-radius {
     position: absolute;
-    left: 320px;
-    top: 123px;
+    left: 300px;
+    top: 140px;
 }
 
 
