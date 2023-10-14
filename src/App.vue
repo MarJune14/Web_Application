@@ -69,6 +69,7 @@ const radius = ref ('')
                 </div></p>
 
         <p>RADIUS: <select v-model="radius" >
+            <option value="" disabled selected>Choose your option</option>
             <option value="15px">15px</option>
             <option value="25px">25px</option>
             <option value="50px">50px</option>
